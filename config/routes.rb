@@ -1,4 +1,4 @@
-Burden::Application.routes.draw do
+Warmup::Application.routes.draw do
   root to: 'users#new'
   resources :users
 

@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Burden::Application.load_tasks
+Warmup::Application.load_tasks
