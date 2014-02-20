@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # ensures that the username and password have correct length
   # and uniqueness
   validates :username, presence: true, uniqueness: true, length: {maximum: 128}
-  validates :password, presence: true, length: {maximum: 128}
+  validates :password, length: {maximum: 128}
   # creates a remember_token (used to keep track of session, based
   # on web tutorial) if none exist and also increments count before
   # each save

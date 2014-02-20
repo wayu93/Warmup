@@ -11,10 +11,9 @@ module UsersHelper
   def valid_login(name, pwd)
     bad_credentials = "Invalid username and password combination. Please try again."
     user1 = User.find_by_username(name)
-    user2 = User.find_by_password(pwd)
-    valid = (user1 == user2)
+    valid = (user1.password == pwd) if user1
     msg = nil
-    msg = bad_credentials if !valid or user2 == nil
+    msg = bad_credentials if !valid
   end
 
   # validates that the password and username are valid for new user
@@ -27,7 +26,7 @@ module UsersHelper
       msg = bad_username
     elsif User.find_by_username(name)
       msg = user_exists
-    elsif pwd.nil? or pwd.length == 0 or pwd.length > 128
+    elsif pwd.length > 128
       msg = bad_password
     end
   end
